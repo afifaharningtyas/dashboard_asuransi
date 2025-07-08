@@ -1,0 +1,63 @@
+[2025-07-07T09:24:34.145+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_fact_investment.run_etl_fact_investment manual__2025-07-07T09:24:32.589321+00:00 [queued]>
+[2025-07-07T09:24:34.160+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_fact_investment.run_etl_fact_investment manual__2025-07-07T09:24:32.589321+00:00 [queued]>
+[2025-07-07T09:24:34.161+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-07-07T09:24:34.173+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_etl_fact_investment> on 2025-07-07 09:24:32.589321+00:00
+[2025-07-07T09:24:34.176+0000] {standard_task_runner.py:57} INFO - Started process 762 to run task
+[2025-07-07T09:24:34.183+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'etl_fact_investment', 'run_etl_fact_investment', 'manual__2025-07-07T09:24:32.589321+00:00', '--job-id', '288', '--raw', '--subdir', 'DAGS_FOLDER/etl_fact_investment.py', '--cfg-path', '/tmp/tmp1dtj0j6h']
+[2025-07-07T09:24:34.198+0000] {standard_task_runner.py:85} INFO - Job 288: Subtask run_etl_fact_investment
+[2025-07-07T09:24:34.256+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_fact_investment.run_etl_fact_investment manual__2025-07-07T09:24:32.589321+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T09:24:34.346+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_fact_investment' AIRFLOW_CTX_TASK_ID='run_etl_fact_investment' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T09:24:32.589321+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T09:24:32.589321+00:00'
+[2025-07-07T09:24:34.376+0000] {base.py:73} INFO - Using connection ID '***_insurance_bi' for task execution.
+[2025-07-07T09:24:35.016+0000] {logging_mixin.py:150} INFO - [extract] Retrieved 50000 rows from source `investment`
+[2025-07-07T09:24:35.018+0000] {logging_mixin.py:150} INFO - [{'investment_id': 'INV-604679', 'policy_id': 'POL-094470', 'investment_type': 'Sharia Fund', 'risk_level': 'Medium', 'investment_date': datetime.date(2025, 5, 4), 'amount': 6545918, 'fund_manager': 'PD Puspita Tbk', 'initial_nav': 1406.32, 'units_purchased': 4847.0163}, {'investment_id': 'INV-113924', 'policy_id': 'POL-321081', 'investment_type': 'Balanced Fund', 'risk_level': 'Medium', 'investment_date': datetime.date(2023, 12, 17), 'amount': 3517810, 'fund_manager': 'CV Wahyuni Narpati', 'initial_nav': 1376.5, 'units_purchased': 2639.1136}, {'investment_id': 'INV-707313', 'policy_id': 'POL-431916', 'investment_type': 'Equity Fund', 'risk_level': 'High', 'investment_date': datetime.date(2025, 1, 9), 'amount': 1863659, 'fund_manager': 'PD Jailani Situmorang Tbk', 'initial_nav': 1159.79, 'units_purchased': 1663.4755}, {'investment_id': 'INV-708696', 'policy_id': 'POL-580522', 'investment_type': 'Fixed Income Fund', 'risk_level': 'Low-Medium', 'investment_date': datetime.date(2024, 11, 21), 'amount': 8354102, 'fund_manager': 'UD Mansur Nasyiah (Persero) Tbk', 'initial_nav': 1201.64, 'units_purchased': 7111.0455}, {'investment_id': 'INV-152981', 'policy_id': 'POL-035380', 'investment_type': 'Equity Fund', 'risk_level': 'High', 'investment_date': datetime.date(2024, 8, 1), 'amount': 3378345, 'fund_manager': 'CV Lailasari', 'initial_nav': 1042.35, 'units_purchased': 2851.0196}]
+[2025-07-07T09:24:35.018+0000] {logging_mixin.py:150} INFO - [transform] Starting transform on 50000 rows
+[2025-07-07T09:24:35.033+0000] {base.py:73} INFO - Using connection ID '***_insurance_dw' for task execution.
+[2025-07-07T09:24:35.452+0000] {logging_mixin.py:150} INFO - df police ----     policy_id  policy_key customer_key
+0  POL-720410           1         None
+1  POL-254487           2         None
+[2025-07-07T09:24:35.473+0000] {logging_mixin.py:150} INFO - df  ----   investment_id   policy_id  ... initial_nav units_purchased
+0    INV-604679  POL-094470  ...     1406.32       4847.0163
+1    INV-113924  POL-321081  ...     1376.50       2639.1136
+
+[2 rows x 9 columns]
+[2025-07-07T09:24:35.474+0000] {logging_mixin.py:150} INFO - [transform] Loaded 200000 rows from dim_policy
+[2025-07-07T09:24:35.475+0000] {logging_mixin.py:150} INFO - df---- investment_id       object
+policy_id           object
+investment_type     object
+risk_level          object
+investment_date     object
+amount               int64
+fund_manager        object
+initial_nav        float64
+units_purchased    float64
+dtype: object
+[2025-07-07T09:24:35.475+0000] {logging_mixin.py:150} INFO - policy---- policy_id       object
+policy_key       int64
+customer_key    object
+dtype: object
+[2025-07-07T09:24:35.485+0000] {logging_mixin.py:150} INFO - df---- investment_id       object
+policy_id           object
+investment_type     object
+risk_level          object
+investment_date     object
+amount               int64
+fund_manager        object
+initial_nav        float64
+units_purchased    float64
+dtype: object
+[2025-07-07T09:24:35.485+0000] {logging_mixin.py:150} INFO - policy---- policy_id       object
+policy_key       int64
+customer_key    object
+dtype: object
+[2025-07-07T09:24:35.675+0000] {logging_mixin.py:150} INFO - [transform] After merge policy: 50000 rows, 0 missing policy_key
+[2025-07-07T09:24:35.697+0000] {base.py:73} INFO - Using connection ID '***_insurance_dw' for task execution.
+[2025-07-07T09:24:35.709+0000] {logging_mixin.py:150} INFO - [transform] Loaded 4018 rows from dim_time
+[2025-07-07T09:24:35.753+0000] {logging_mixin.py:150} INFO - [transform] After merge time: 50000 rows, 0 missing time_key
+[2025-07-07T09:24:35.792+0000] {logging_mixin.py:150} INFO - [transform] After dropna: kept 0 of 50000 rows
+[2025-07-07T09:24:35.793+0000] {logging_mixin.py:150} INFO - [transform] Final DataFrame ready with 0 rows
+[2025-07-07T09:24:35.802+0000] {logging_mixin.py:150} INFO - [load] Loading 0 rows into fact_investment
+[2025-07-07T09:24:35.802+0000] {logging_mixin.py:150} INFO - [load] No data to load. Exiting.
+[2025-07-07T09:24:35.809+0000] {python.py:183} INFO - Done. Returned value was: No data to load
+[2025-07-07T09:24:35.853+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=etl_fact_investment, task_id=run_etl_fact_investment, execution_date=20250707T092432, start_date=20250707T092434, end_date=20250707T092435
+[2025-07-07T09:24:35.908+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-07-07T09:24:35.980+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

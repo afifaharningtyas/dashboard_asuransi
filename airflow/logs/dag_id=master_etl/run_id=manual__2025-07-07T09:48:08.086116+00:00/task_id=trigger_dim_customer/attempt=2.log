@@ -1,0 +1,27 @@
+[2025-07-07T10:00:19.036+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: master_etl.trigger_dim_customer manual__2025-07-07T09:48:08.086116+00:00 [queued]>
+[2025-07-07T10:00:19.048+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: master_etl.trigger_dim_customer manual__2025-07-07T09:48:08.086116+00:00 [queued]>
+[2025-07-07T10:00:19.048+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 2
+[2025-07-07T10:00:19.060+0000] {taskinstance.py:1327} INFO - Executing <Task(TriggerDagRunOperator): trigger_dim_customer> on 2025-07-07 09:48:08.086116+00:00
+[2025-07-07T10:00:19.066+0000] {standard_task_runner.py:57} INFO - Started process 808 to run task
+[2025-07-07T10:00:19.070+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'master_etl', 'trigger_dim_customer', 'manual__2025-07-07T09:48:08.086116+00:00', '--job-id', '307', '--raw', '--subdir', 'DAGS_FOLDER/master_etl.py', '--cfg-path', '/tmp/tmpachm70hr']
+[2025-07-07T10:00:19.071+0000] {standard_task_runner.py:85} INFO - Job 307: Subtask trigger_dim_customer
+[2025-07-07T10:00:19.152+0000] {task_command.py:410} INFO - Running <TaskInstance: master_etl.trigger_dim_customer manual__2025-07-07T09:48:08.086116+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T10:00:19.242+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='master_etl' AIRFLOW_CTX_TASK_ID='trigger_dim_customer' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T09:48:08.086116+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T09:48:08.086116+00:00'
+[2025-07-07T10:00:19.326+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T10:00:19.326+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_customer on 2025-07-07T10:00:19.242530+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T10:01:19.420+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T10:01:19.417+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_customer on 2025-07-07T10:00:19.242530+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T10:02:19.553+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T10:02:19.550+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_customer on 2025-07-07T10:00:19.242530+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T10:03:19.647+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T10:03:19.644+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_customer on 2025-07-07T10:00:19.242530+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T10:04:19.738+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T10:04:19.736+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_customer on 2025-07-07T10:00:19.242530+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T10:05:19.828+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T10:05:19.825+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_customer on 2025-07-07T10:00:19.242530+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T10:06:19.915+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T10:06:19.912+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_customer on 2025-07-07T10:00:19.242530+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T10:07:20.002+0000] {trigger_dagrun.py:210} INFO - etl_dim_customer finished with allowed state success
+[2025-07-07T10:07:20.029+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=master_etl, task_id=trigger_dim_customer, execution_date=20250707T094808, start_date=20250707T100019, end_date=20250707T100720
+[2025-07-07T10:07:20.111+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-07-07T10:07:20.194+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

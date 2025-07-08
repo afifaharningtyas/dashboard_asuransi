@@ -1,0 +1,15 @@
+[2025-07-07T07:44:57.496+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: master_etl.trigger_init_dw manual__2025-07-07T07:44:54.258586+00:00 [queued]>
+[2025-07-07T07:44:57.505+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: master_etl.trigger_init_dw manual__2025-07-07T07:44:54.258586+00:00 [queued]>
+[2025-07-07T07:44:57.505+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-07-07T07:44:57.513+0000] {taskinstance.py:1327} INFO - Executing <Task(TriggerDagRunOperator): trigger_init_dw> on 2025-07-07 07:44:54.258586+00:00
+[2025-07-07T07:44:57.516+0000] {standard_task_runner.py:57} INFO - Started process 590 to run task
+[2025-07-07T07:44:57.518+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'master_etl', 'trigger_init_dw', 'manual__2025-07-07T07:44:54.258586+00:00', '--job-id', '222', '--raw', '--subdir', 'DAGS_FOLDER/master_etl.py', '--cfg-path', '/tmp/tmp2svhpw9a']
+[2025-07-07T07:44:57.519+0000] {standard_task_runner.py:85} INFO - Job 222: Subtask trigger_init_dw
+[2025-07-07T07:44:57.576+0000] {task_command.py:410} INFO - Running <TaskInstance: master_etl.trigger_init_dw manual__2025-07-07T07:44:54.258586+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T07:44:57.672+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='master_etl' AIRFLOW_CTX_TASK_ID='trigger_init_dw' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T07:44:54.258586+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T07:44:54.258586+00:00'
+[2025-07-07T07:44:57.757+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T07:44:57.756+0000] {trigger_dagrun.py:201} INFO - Waiting for init_data_warehouse on 2025-07-07T07:44:57.673209+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T07:45:57.853+0000] {trigger_dagrun.py:210} INFO - init_data_warehouse finished with allowed state success
+[2025-07-07T07:45:57.877+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=master_etl, task_id=trigger_init_dw, execution_date=20250707T074454, start_date=20250707T074457, end_date=20250707T074557
+[2025-07-07T07:45:57.953+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-07-07T07:45:58.031+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,32 @@
+[2025-07-07T01:47:11.955+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_dim_marketing_program.run_etl_dim_marketing_program scheduled__2025-07-05T01:00:00+00:00 [queued]>
+[2025-07-07T01:47:11.989+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_dim_marketing_program.run_etl_dim_marketing_program scheduled__2025-07-05T01:00:00+00:00 [queued]>
+[2025-07-07T01:47:11.989+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 2
+[2025-07-07T01:47:12.034+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_etl_dim_marketing_program> on 2025-07-05 01:00:00+00:00
+[2025-07-07T01:47:12.046+0000] {standard_task_runner.py:57} INFO - Started process 99 to run task
+[2025-07-07T01:47:12.051+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'etl_dim_marketing_program', 'run_etl_dim_marketing_program', 'scheduled__2025-07-05T01:00:00+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/etl_dim_marketing_program.py', '--cfg-path', '/tmp/tmpmy1155pb']
+[2025-07-07T01:47:12.061+0000] {standard_task_runner.py:85} INFO - Job 41: Subtask run_etl_dim_marketing_program
+[2025-07-07T01:47:12.403+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_dim_marketing_program.run_etl_dim_marketing_program scheduled__2025-07-05T01:00:00+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T01:47:12.789+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_dim_marketing_program' AIRFLOW_CTX_TASK_ID='run_etl_dim_marketing_program' AIRFLOW_CTX_EXECUTION_DATE='2025-07-05T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-05T01:00:00+00:00'
+[2025-07-07T01:47:13.048+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_dim_marketing_program.py", line 180, in etl_dim_marketing_program
+    df = extract_marketing_program_data()
+  File "/opt/airflow/dags/etl_dim_marketing_program.py", line 42, in extract_marketing_program_data
+    df = source_hook.get_pandas_df(sql)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 200, in get_pandas_df
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 118, in get_conn
+    conn = deepcopy(self.connection or self.get_connection(conn_id))
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 463, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `***_insurance_bi` isn't defined
+[2025-07-07T01:47:13.071+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=etl_dim_marketing_program, task_id=run_etl_dim_marketing_program, execution_date=20250705T010000, start_date=20250707T014711, end_date=20250707T014713
+[2025-07-07T01:47:13.199+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 41 for task run_etl_dim_marketing_program (The conn_id `***_insurance_bi` isn't defined; 99)
+[2025-07-07T01:47:13.216+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2025-07-07T01:47:13.489+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

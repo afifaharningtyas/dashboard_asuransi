@@ -1,0 +1,30 @@
+[2025-07-07T06:28:01.238+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: master_etl.trigger_export_dashboard manual__2025-07-07T06:13:47.259414+00:00 [queued]>
+[2025-07-07T06:28:01.247+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: master_etl.trigger_export_dashboard manual__2025-07-07T06:13:47.259414+00:00 [queued]>
+[2025-07-07T06:28:01.247+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 2
+[2025-07-07T06:28:01.256+0000] {taskinstance.py:1327} INFO - Executing <Task(TriggerDagRunOperator): trigger_export_dashboard> on 2025-07-07 06:13:47.259414+00:00
+[2025-07-07T06:28:01.260+0000] {standard_task_runner.py:57} INFO - Started process 507 to run task
+[2025-07-07T06:28:01.263+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'master_etl', 'trigger_export_dashboard', 'manual__2025-07-07T06:13:47.259414+00:00', '--job-id', '191', '--raw', '--subdir', 'DAGS_FOLDER/master_etl.py', '--cfg-path', '/tmp/tmpbczhkbpe']
+[2025-07-07T06:28:01.263+0000] {standard_task_runner.py:85} INFO - Job 191: Subtask trigger_export_dashboard
+[2025-07-07T06:28:01.321+0000] {task_command.py:410} INFO - Running <TaskInstance: master_etl.trigger_export_dashboard manual__2025-07-07T06:13:47.259414+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T06:28:01.401+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='master_etl' AIRFLOW_CTX_TASK_ID='trigger_export_dashboard' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T06:13:47.259414+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T06:13:47.259414+00:00'
+[2025-07-07T06:28:01.496+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T06:28:01.496+0000] {trigger_dagrun.py:201} INFO - Waiting for export_dashboard_data on 2025-07-07T06:28:01.401900+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T06:29:01.550+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T06:29:01.548+0000] {trigger_dagrun.py:201} INFO - Waiting for export_dashboard_data on 2025-07-07T06:28:01.401900+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T06:30:01.639+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T06:30:01.638+0000] {trigger_dagrun.py:201} INFO - Waiting for export_dashboard_data on 2025-07-07T06:28:01.401900+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T06:31:01.693+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T06:31:01.693+0000] {trigger_dagrun.py:201} INFO - Waiting for export_dashboard_data on 2025-07-07T06:28:01.401900+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T06:32:01.759+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T06:32:01.758+0000] {trigger_dagrun.py:201} INFO - Waiting for export_dashboard_data on 2025-07-07T06:28:01.401900+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T06:33:01.815+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T06:33:01.814+0000] {trigger_dagrun.py:201} INFO - Waiting for export_dashboard_data on 2025-07-07T06:28:01.401900+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T06:34:01.916+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/trigger_dagrun.py", line 208, in execute
+    raise AirflowException(f"{self.trigger_dag_id} failed with failed states {state}")
+airflow.exceptions.AirflowException: export_dashboard_data failed with failed states failed
+[2025-07-07T06:34:01.930+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=master_etl, task_id=trigger_export_dashboard, execution_date=20250707T061347, start_date=20250707T062801, end_date=20250707T063401
+[2025-07-07T06:34:01.950+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 191 for task trigger_export_dashboard (export_dashboard_data failed with failed states failed; 507)
+[2025-07-07T06:34:01.992+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2025-07-07T06:34:02.029+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

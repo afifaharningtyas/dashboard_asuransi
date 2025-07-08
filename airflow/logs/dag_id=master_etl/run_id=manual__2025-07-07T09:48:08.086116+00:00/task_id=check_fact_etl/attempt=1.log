@@ -1,0 +1,15 @@
+[2025-07-07T10:07:22.067+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: master_etl.check_fact_etl manual__2025-07-07T09:48:08.086116+00:00 [queued]>
+[2025-07-07T10:07:22.077+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: master_etl.check_fact_etl manual__2025-07-07T09:48:08.086116+00:00 [queued]>
+[2025-07-07T10:07:22.077+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-07-07T10:07:22.088+0000] {taskinstance.py:1327} INFO - Executing <Task(ShortCircuitOperator): check_fact_etl> on 2025-07-07 09:48:08.086116+00:00
+[2025-07-07T10:07:22.092+0000] {standard_task_runner.py:57} INFO - Started process 828 to run task
+[2025-07-07T10:07:22.096+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'master_etl', 'check_fact_etl', 'manual__2025-07-07T09:48:08.086116+00:00', '--job-id', '314', '--raw', '--subdir', 'DAGS_FOLDER/master_etl.py', '--cfg-path', '/tmp/tmp5aq58g2l']
+[2025-07-07T10:07:22.097+0000] {standard_task_runner.py:85} INFO - Job 314: Subtask check_fact_etl
+[2025-07-07T10:07:22.168+0000] {task_command.py:410} INFO - Running <TaskInstance: master_etl.check_fact_etl manual__2025-07-07T09:48:08.086116+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T10:07:22.253+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='master_etl' AIRFLOW_CTX_TASK_ID='check_fact_etl' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T09:48:08.086116+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T09:48:08.086116+00:00'
+[2025-07-07T10:07:22.257+0000] {python.py:183} INFO - Done. Returned value was: True
+[2025-07-07T10:07:22.265+0000] {python.py:253} INFO - Condition result is True
+[2025-07-07T10:07:22.265+0000] {python.py:256} INFO - Proceeding with downstream tasks...
+[2025-07-07T10:07:22.277+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=master_etl, task_id=check_fact_etl, execution_date=20250707T094808, start_date=20250707T100722, end_date=20250707T100722
+[2025-07-07T10:07:22.321+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-07-07T10:07:22.356+0000] {taskinstance.py:2653} INFO - 5 downstream tasks scheduled from follow-on schedule check

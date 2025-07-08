@@ -1,0 +1,155 @@
+[2025-07-07T02:01:13.842+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: init_data_warehouse.create_dim_tables manual__2025-07-07T02:01:10.620099+00:00 [queued]>
+[2025-07-07T02:01:13.848+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: init_data_warehouse.create_dim_tables manual__2025-07-07T02:01:10.620099+00:00 [queued]>
+[2025-07-07T02:01:13.848+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-07-07T02:01:13.858+0000] {taskinstance.py:1327} INFO - Executing <Task(PostgresOperator): create_dim_tables> on 2025-07-07 02:01:10.620099+00:00
+[2025-07-07T02:01:13.861+0000] {standard_task_runner.py:57} INFO - Started process 197 to run task
+[2025-07-07T02:01:13.864+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'init_data_warehouse', 'create_dim_tables', 'manual__2025-07-07T02:01:10.620099+00:00', '--job-id', '76', '--raw', '--subdir', 'DAGS_FOLDER/init_dw.py', '--cfg-path', '/tmp/tmp_akbexud']
+[2025-07-07T02:01:13.867+0000] {standard_task_runner.py:85} INFO - Job 76: Subtask create_dim_tables
+[2025-07-07T02:01:13.913+0000] {task_command.py:410} INFO - Running <TaskInstance: init_data_warehouse.create_dim_tables manual__2025-07-07T02:01:10.620099+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T02:01:13.982+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='init_data_warehouse' AIRFLOW_CTX_TASK_ID='create_dim_tables' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T02:01:10.620099+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T02:01:10.620099+00:00'
+[2025-07-07T02:01:13.982+0000] {sql.py:265} INFO - Executing: ['-- Dimension table for Time\nCREATE TABLE IF NOT EXISTS dim_time (\n    time_key SERIAL PRIMARY KEY,\n    date_actual DATE NOT NULL,\n    day_of_week INT,\n    day_name VARCHAR(10),\n    day_of_month INT,\n    day_of_year INT,\n    week_of_year INT,\n    month_actual INT,\n    month_name VARCHAR(10),\n    quarter_actual INT,\n    year_actual INT,\n    is_weekend BOOLEAN,\n    is_holiday BOOLEAN,\n    holiday_name VARCHAR(100),\n    fiscal_year INT,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\n-- Unique index on actual date\nCREATE UNIQUE INDEX IF NOT EXISTS idx_date_actual ON dim_time(date_actual);', '-- Dimension table for Customer\nCREATE TABLE IF NOT EXISTS dim_customer (\n    customer_key SERIAL PRIMARY KEY,\n    customer_id BIGINT NOT NULL,\n    nama VARCHAR(255),\n    tanggal_lahir DATE,\n    alamat TEXT,\n    referral_code VARCHAR(50),\n    tanggal_daftar DATE,\n    umur INT,  -- Calculated field\n    lama_menjadi_pelanggan INT, -- Calculated field in days\n    valid_from DATE NOT NULL,\n    valid_to DATE,\n    is_current BOOLEAN NOT NULL DEFAULT TRUE,\n    batch_id VARCHAR(50),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\n-- Index for lookups\nCREATE INDEX IF NOT EXISTS idx_customer_id ON dim_customer(customer_id);\nCREATE INDEX IF NOT EXISTS idx_customer_current ON dim_customer(is_current);', '-- Dimension table for Product\nCREATE TABLE IF NOT EXISTS dim_product (\n    product_key SERIAL PRIMARY KEY,\n    product_id INTEGER NOT NULL,\n    nama_product VARCHAR(255),\n    jenis_product VARCHAR(100),\n    manfaat TEXT,\n    premi_dasar NUMERIC(12, 2),\n    kategori_premi VARCHAR(20), -- Calculated field (Low, Medium, High)\n    valid_from DATE NOT NULL,\n    valid_to DATE,\n    is_current BOOLEAN NOT NULL DEFAULT TRUE,\n    batch_id VARCHAR(50),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\n-- Index for lookups\nCREATE INDEX IF NOT EXISTS idx_product_id ON dim_product(product_id);\nCREATE INDEX IF NOT EXISTS idx_product_current ON dim_product(is_current);', '-- Dimension table for Employee\nCREATE TABLE IF NOT EXISTS dim_employee (\n    employee_key SERIAL PRIMARY KEY,\n    employee_id INTEGER NOT NULL,\n    nama VARCHAR(255),\n    tanggal_lahir DATE,\n    alamat TEXT,\n    jabatan VARCHAR(100),\n    department VARCHAR(50),\n    tanggal_masuk DATE,\n    umur INT, -- Calculated field based on birth date\n    masa_kerja INT, -- Calculated field in days\n    valid_from DATE NOT NULL,\n    valid_to DATE,\n    is_current BOOLEAN NOT NULL DEFAULT TRUE,\n    batch_id VARCHAR(50),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\n-- Index for lookups\nCREATE INDEX IF NOT EXISTS idx_employee_id ON dim_employee(employee_id);\nCREATE INDEX IF NOT EXISTS idx_employee_current ON dim_employee(is_current);', '-- Dimension table for Marketing Program\nCREATE TABLE IF NOT EXISTS dim_marketing_program (\n    program_key SERIAL PRIMARY KEY,\n    program_id INTEGER NOT NULL,\n    nama_program VARCHAR(255),\n    start_date DATE,\n    end_date DATE,\n    target NUMERIC(15, 2),\n    description TEXT,\n    jenis_program VARCHAR(50),\n    budget NUMERIC(15, 2),\n    program_status VARCHAR(20), -- Calculated field (Active, Completed, Planned)\n    durasi_program INT, -- Calculated field in days\n    valid_from DATE NOT NULL,\n    valid_to DATE,\n    is_current BOOLEAN NOT NULL DEFAULT TRUE,\n    batch_id VARCHAR(50),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\n-- Index for lookups\nCREATE INDEX IF NOT EXISTS idx_program_id ON dim_marketing_program(program_id);\nCREATE INDEX IF NOT EXISTS idx_program_current ON dim_marketing_program(is_current);', '-- Dimension table for Policy\nCREATE TABLE IF NOT EXISTS dim_policy (\n    policy_key SERIAL PRIMARY KEY,\n    policy_id VARCHAR(20) NOT NULL,\n    customer_key INT,\n    product_key INT,\n    tanggal_mulai DATE,\n    tanggal_berakhir DATE,\n    status VARCHAR(20),\n    premium NUMERIC(12, 2),\n    payment_frequency VARCHAR(20),\n    payment_method VARCHAR(30),\n    sum_assured NUMERIC(15, 2),\n    durasi_polis INT, -- Calculated field in years\n    valid_from DATE NOT NULL,\n    valid_to DATE,\n    is_current BOOLEAN NOT NULL DEFAULT TRUE,\n    batch_id VARCHAR(50),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    FOREIGN KEY (customer_key) REFERENCES dim_customer(customer_key),\n    FOREIGN KEY (product_key) REFERENCES dim_product(product_key)\n);\n\n-- Index for lookups\nCREATE INDEX IF NOT EXISTS idx_policy_id ON dim_policy(policy_id);\nCREATE INDEX IF NOT EXISTS idx_policy_current ON dim_policy(is_current);\nCREATE INDEX IF NOT EXISTS idx_policy_customer ON dim_policy(customer_key);\nCREATE INDEX IF NOT EXISTS idx_policy_product ON dim_policy(product_key);']
+[2025-07-07T02:01:13.995+0000] {base.py:73} INFO - Using connection ID '***_insurance_dw' for task execution.
+[2025-07-07T02:01:14.235+0000] {base.py:73} INFO - Using connection ID '***_insurance_dw' for task execution.
+[2025-07-07T02:01:14.241+0000] {sql.py:375} INFO - Running statement: -- Dimension table for Time
+CREATE TABLE IF NOT EXISTS dim_time (
+    time_key SERIAL PRIMARY KEY,
+    date_actual DATE NOT NULL,
+    day_of_week INT,
+    day_name VARCHAR(10),
+    day_of_month INT,
+    day_of_year INT,
+    week_of_year INT,
+    month_actual INT,
+    month_name VARCHAR(10),
+    quarter_actual INT,
+    year_actual INT,
+    is_weekend BOOLEAN,
+    is_holiday BOOLEAN,
+    holiday_name VARCHAR(100),
+    fiscal_year INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Unique index on actual date
+CREATE UNIQUE INDEX IF NOT EXISTS idx_date_actual ON dim_time(date_actual);, parameters: None
+[2025-07-07T02:01:14.267+0000] {sql.py:375} INFO - Running statement: -- Dimension table for Customer
+CREATE TABLE IF NOT EXISTS dim_customer (
+    customer_key SERIAL PRIMARY KEY,
+    customer_id BIGINT NOT NULL,
+    nama VARCHAR(255),
+    tanggal_lahir DATE,
+    alamat TEXT,
+    referral_code VARCHAR(50),
+    tanggal_daftar DATE,
+    umur INT,  -- Calculated field
+    lama_menjadi_pelanggan INT, -- Calculated field in days
+    valid_from DATE NOT NULL,
+    valid_to DATE,
+    is_current BOOLEAN NOT NULL DEFAULT TRUE,
+    batch_id VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Index for lookups
+CREATE INDEX IF NOT EXISTS idx_customer_id ON dim_customer(customer_id);
+CREATE INDEX IF NOT EXISTS idx_customer_current ON dim_customer(is_current);, parameters: None
+[2025-07-07T02:01:14.273+0000] {sql.py:375} INFO - Running statement: -- Dimension table for Product
+CREATE TABLE IF NOT EXISTS dim_product (
+    product_key SERIAL PRIMARY KEY,
+    product_id INTEGER NOT NULL,
+    nama_product VARCHAR(255),
+    jenis_product VARCHAR(100),
+    manfaat TEXT,
+    premi_dasar NUMERIC(12, 2),
+    kategori_premi VARCHAR(20), -- Calculated field (Low, Medium, High)
+    valid_from DATE NOT NULL,
+    valid_to DATE,
+    is_current BOOLEAN NOT NULL DEFAULT TRUE,
+    batch_id VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Index for lookups
+CREATE INDEX IF NOT EXISTS idx_product_id ON dim_product(product_id);
+CREATE INDEX IF NOT EXISTS idx_product_current ON dim_product(is_current);, parameters: None
+[2025-07-07T02:01:14.282+0000] {sql.py:375} INFO - Running statement: -- Dimension table for Employee
+CREATE TABLE IF NOT EXISTS dim_employee (
+    employee_key SERIAL PRIMARY KEY,
+    employee_id INTEGER NOT NULL,
+    nama VARCHAR(255),
+    tanggal_lahir DATE,
+    alamat TEXT,
+    jabatan VARCHAR(100),
+    department VARCHAR(50),
+    tanggal_masuk DATE,
+    umur INT, -- Calculated field based on birth date
+    masa_kerja INT, -- Calculated field in days
+    valid_from DATE NOT NULL,
+    valid_to DATE,
+    is_current BOOLEAN NOT NULL DEFAULT TRUE,
+    batch_id VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Index for lookups
+CREATE INDEX IF NOT EXISTS idx_employee_id ON dim_employee(employee_id);
+CREATE INDEX IF NOT EXISTS idx_employee_current ON dim_employee(is_current);, parameters: None
+[2025-07-07T02:01:14.291+0000] {sql.py:375} INFO - Running statement: -- Dimension table for Marketing Program
+CREATE TABLE IF NOT EXISTS dim_marketing_program (
+    program_key SERIAL PRIMARY KEY,
+    program_id INTEGER NOT NULL,
+    nama_program VARCHAR(255),
+    start_date DATE,
+    end_date DATE,
+    target NUMERIC(15, 2),
+    description TEXT,
+    jenis_program VARCHAR(50),
+    budget NUMERIC(15, 2),
+    program_status VARCHAR(20), -- Calculated field (Active, Completed, Planned)
+    durasi_program INT, -- Calculated field in days
+    valid_from DATE NOT NULL,
+    valid_to DATE,
+    is_current BOOLEAN NOT NULL DEFAULT TRUE,
+    batch_id VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Index for lookups
+CREATE INDEX IF NOT EXISTS idx_program_id ON dim_marketing_program(program_id);
+CREATE INDEX IF NOT EXISTS idx_program_current ON dim_marketing_program(is_current);, parameters: None
+[2025-07-07T02:01:14.297+0000] {sql.py:375} INFO - Running statement: -- Dimension table for Policy
+CREATE TABLE IF NOT EXISTS dim_policy (
+    policy_key SERIAL PRIMARY KEY,
+    policy_id VARCHAR(20) NOT NULL,
+    customer_key INT,
+    product_key INT,
+    tanggal_mulai DATE,
+    tanggal_berakhir DATE,
+    status VARCHAR(20),
+    premium NUMERIC(12, 2),
+    payment_frequency VARCHAR(20),
+    payment_method VARCHAR(30),
+    sum_assured NUMERIC(15, 2),
+    durasi_polis INT, -- Calculated field in years
+    valid_from DATE NOT NULL,
+    valid_to DATE,
+    is_current BOOLEAN NOT NULL DEFAULT TRUE,
+    batch_id VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (customer_key) REFERENCES dim_customer(customer_key),
+    FOREIGN KEY (product_key) REFERENCES dim_product(product_key)
+);
+
+-- Index for lookups
+CREATE INDEX IF NOT EXISTS idx_policy_id ON dim_policy(policy_id);
+CREATE INDEX IF NOT EXISTS idx_policy_current ON dim_policy(is_current);
+CREATE INDEX IF NOT EXISTS idx_policy_customer ON dim_policy(customer_key);
+CREATE INDEX IF NOT EXISTS idx_policy_product ON dim_policy(product_key);, parameters: None
+[2025-07-07T02:01:14.351+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=init_data_warehouse, task_id=create_dim_tables, execution_date=20250707T020110, start_date=20250707T020113, end_date=20250707T020114
+[2025-07-07T02:01:14.414+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-07-07T02:01:14.441+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

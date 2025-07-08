@@ -1,0 +1,35 @@
+[2025-07-07T02:08:41.851+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_dim_policy.run_etl_dim_policy manual__2025-07-07T02:03:39.140484+00:00 [queued]>
+[2025-07-07T02:08:41.857+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_dim_policy.run_etl_dim_policy manual__2025-07-07T02:03:39.140484+00:00 [queued]>
+[2025-07-07T02:08:41.857+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 2
+[2025-07-07T02:08:41.864+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_etl_dim_policy> on 2025-07-07 02:03:39.140484+00:00
+[2025-07-07T02:08:41.868+0000] {standard_task_runner.py:57} INFO - Started process 277 to run task
+[2025-07-07T02:08:41.870+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'etl_dim_policy', 'run_etl_dim_policy', 'manual__2025-07-07T02:03:39.140484+00:00', '--job-id', '106', '--raw', '--subdir', 'DAGS_FOLDER/etl_dim_policy.py', '--cfg-path', '/tmp/tmp_8lgmgtu']
+[2025-07-07T02:08:41.871+0000] {standard_task_runner.py:85} INFO - Job 106: Subtask run_etl_dim_policy
+[2025-07-07T02:08:41.914+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_dim_policy.run_etl_dim_policy manual__2025-07-07T02:03:39.140484+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T02:08:41.984+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_dim_policy' AIRFLOW_CTX_TASK_ID='run_etl_dim_policy' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T02:03:39.140484+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T02:03:39.140484+00:00'
+[2025-07-07T02:08:42.002+0000] {base.py:73} INFO - Using connection ID '***_insurance_bi' for task execution.
+[2025-07-07T02:08:42.015+0000] {warnings.py:110} WARNING - /opt/airflow/dags/etl_dim_policy.py:48: FutureWarning: The pandas.np module is deprecated and will be removed from pandas in a future version. Import numpy directly instead
+  df['status_polis'] = pd.np.select(conditions, choices, default='Unknown')
+
+[2025-07-07T02:08:42.022+0000] {base.py:73} INFO - Using connection ID '***_insurance_dw' for task execution.
+[2025-07-07T02:08:42.032+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_dim_policy.py", line 123, in etl_dim_policy
+    result = load_dim_policy(transformed_df)
+  File "/opt/airflow/dags/etl_dim_policy.py", line 113, in load_dim_policy
+    row['durasi_polis'], row['status_polis'], row['valid_from'], row['valid_to'], row['is_current'], row['batch_id']
+psycopg2.errors.UndefinedColumn: column "customer_id" of relation "dim_policy" does not exist
+LINE 3:                     policy_id, customer_id, product_id, tang...
+                                       ^
+
+[2025-07-07T02:08:42.043+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=etl_dim_policy, task_id=run_etl_dim_policy, execution_date=20250707T020339, start_date=20250707T020841, end_date=20250707T020842
+[2025-07-07T02:08:42.053+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 106 for task run_etl_dim_policy (column "customer_id" of relation "dim_policy" does not exist
+LINE 3:                     policy_id, customer_id, product_id, tang...
+                                       ^
+; 277)
+[2025-07-07T02:08:42.093+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2025-07-07T02:08:42.110+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,116 @@
+./dwh/bi
+├── airflow
+│   ├── dags
+│   │   ├── __pycache__
+│   │   │   ├── cekdb.cpython-37.pyc
+│   │   │   ├── etl_dim_customer.cpython-37.pyc
+│   │   │   ├── etl_dim_employee.cpython-37.pyc
+│   │   │   ├── etl_dim_marketing_program.cpython-37.pyc
+│   │   │   ├── etl_dim_policy.cpython-37.pyc
+│   │   │   ├── etl_dim_product.cpython-37.pyc
+│   │   │   ├── etl_dim_time.cpython-37.pyc
+│   │   │   ├── etl_fact_claim.cpython-37.pyc
+│   │   │   ├── etl_fact_customer_service.cpython-37.pyc
+│   │   │   ├── etl_fact_investment.cpython-37.pyc
+│   │   │   ├── etl_fact_registration.cpython-37.pyc
+│   │   │   ├── etl_fact_sales_activity.cpython-37.pyc
+│   │   │   ├── export_dashboard_data.cpython-37.pyc
+│   │   │   ├── init_dw.cpython-37.pyc
+│   │   │   ├── manual_etl.cpython-37.pyc
+│   │   │   ├── master_etl.cpython-37.pyc
+│   │   │   └── test_dag.cpython-37.pyc
+│   │   ├── cekdb.py
+│   │   ├── config
+│   │   │   ├── __pycache__
+│   │   │   │   ├── db_config.cpython-37.pyc
+│   │   │   │   └── db_config.cpython-39.pyc
+│   │   │   └── db_config.py
+│   │   ├── etl_dim_customer.py
+│   │   ├── etl_dim_employee.py
+│   │   ├── etl_dim_marketing_program.py
+│   │   ├── etl_dim_policy.py
+│   │   ├── etl_dim_product.py
+│   │   ├── etl_dim_time.py
+│   │   ├── etl_fact_claim.py
+│   │   ├── etl_fact_customer_service.py
+│   │   ├── etl_fact_investment.py
+│   │   ├── etl_fact_registration.py
+│   │   ├── etl_fact_sales_activity.py
+│   │   ├── export_dashboard_data.py
+│   │   ├── init_dw.py
+│   │   ├── manual_etl.py
+│   │   ├── master_etl.py
+│   │   ├── sql
+│   │   │   ├── dim_customer.sql
+│   │   │   ├── dim_employee.sql
+│   │   │   ├── dim_marketing_program.sql
+│   │   │   ├── dim_policy.sql
+│   │   │   ├── dim_product.sql
+│   │   │   ├── dim_time.sql
+│   │   │   ├── fact_claim.sql
+│   │   │   ├── fact_customer_service.sql
+│   │   │   ├── fact_investment.sql
+│   │   │   ├── fact_registration.sql
+│   │   │   └── fact_sales_activity.sql
+│   │   └── test_dag.py
+│   ├── logs
+│   ├── plugins
+│   └── scripts
+├── data
+│   ├── dashboard
+│   └── raw
+│       ├── claim.csv
+│       ├── customer_service.csv
+│       ├── customer.csv
+│       ├── employee.csv
+│       ├── investment_return.csv
+│       ├── investment.csv
+│       ├── marketing_program.csv
+│       ├── policy.csv
+│       ├── product.csv
+│       └── sales_activity.csv
+├── docker-compose.yml
+├── docs
+│   ├── erd.md
+│   ├── star_schema.md
+│   └── task.md
+├── environment.yml
+├── README.md
+├── requirements.txt
+├── src
+│   └── data_generation
+│       ├── __pycache__
+│       │   ├── claim_generator.cpython-311.pyc
+│       │   ├── claim_generator.cpython-39.pyc
+│       │   ├── customer_generator.cpython-311.pyc
+│       │   ├── customer_generator.cpython-39.pyc
+│       │   ├── customer_service_generator.cpython-311.pyc
+│       │   ├── customer_service_generator.cpython-39.pyc
+│       │   ├── db_config.cpython-311.pyc
+│       │   ├── db_config.cpython-39.pyc
+│       │   ├── employee_generator.cpython-311.pyc
+│       │   ├── employee_generator.cpython-39.pyc
+│       │   ├── investment_generator.cpython-311.pyc
+│       │   ├── investment_generator.cpython-39.pyc
+│       │   ├── marketing_program_generator.cpython-311.pyc
+│       │   ├── marketing_program_generator.cpython-39.pyc
+│       │   ├── policy_generator.cpython-311.pyc
+│       │   ├── policy_generator.cpython-39.pyc
+│       │   ├── product_generator.cpython-311.pyc
+│       │   ├── product_generator.cpython-39.pyc
+│       │   ├── sales_activity_generator.cpython-311.pyc
+│       │   └── sales_activity_generator.cpython-39.pyc
+│       ├── claim_generator.py
+│       ├── customer_generator.py
+│       ├── customer_service_generator.py
+│       ├── db_config.py
+│       ├── employee_generator.py
+│       ├── investment_generator.py
+│       ├── main.py
+│       ├── marketing_program_generator.py
+│       ├── policy_generator.py
+│       ├── product_generator.py
+│       └── sales_activity_generator.py
+└── struktur.txt
+
+17 directories, 97 files

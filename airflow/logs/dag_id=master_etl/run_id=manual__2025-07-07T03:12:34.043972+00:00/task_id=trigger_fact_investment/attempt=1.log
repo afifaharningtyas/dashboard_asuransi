@@ -1,0 +1,30 @@
+[2025-07-07T03:14:43.167+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: master_etl.trigger_fact_investment manual__2025-07-07T03:12:34.043972+00:00 [queued]>
+[2025-07-07T03:14:43.184+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: master_etl.trigger_fact_investment manual__2025-07-07T03:12:34.043972+00:00 [queued]>
+[2025-07-07T03:14:43.185+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-07-07T03:14:43.202+0000] {taskinstance.py:1327} INFO - Executing <Task(TriggerDagRunOperator): trigger_fact_investment> on 2025-07-07 03:12:34.043972+00:00
+[2025-07-07T03:14:43.208+0000] {standard_task_runner.py:57} INFO - Started process 350 to run task
+[2025-07-07T03:14:43.211+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'master_etl', 'trigger_fact_investment', 'manual__2025-07-07T03:12:34.043972+00:00', '--job-id', '134', '--raw', '--subdir', 'DAGS_FOLDER/master_etl.py', '--cfg-path', '/tmp/tmp90708eqi']
+[2025-07-07T03:14:43.212+0000] {standard_task_runner.py:85} INFO - Job 134: Subtask trigger_fact_investment
+[2025-07-07T03:14:43.380+0000] {task_command.py:410} INFO - Running <TaskInstance: master_etl.trigger_fact_investment manual__2025-07-07T03:12:34.043972+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T03:14:43.730+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='master_etl' AIRFLOW_CTX_TASK_ID='trigger_fact_investment' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T03:12:34.043972+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T03:12:34.043972+00:00'
+[2025-07-07T03:14:43.896+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T03:14:43.896+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_fact_investment on 2025-07-07T03:14:43.731925+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T03:15:44.003+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T03:15:43.999+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_fact_investment on 2025-07-07T03:14:43.731925+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T03:16:44.050+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T03:16:44.048+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_fact_investment on 2025-07-07T03:14:43.731925+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T03:17:44.145+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T03:17:44.144+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_fact_investment on 2025-07-07T03:14:43.731925+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T03:18:44.237+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T03:18:44.236+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_fact_investment on 2025-07-07T03:14:43.731925+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T03:19:44.310+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T03:19:44.303+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_fact_investment on 2025-07-07T03:14:43.731925+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T03:20:44.442+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/trigger_dagrun.py", line 208, in execute
+    raise AirflowException(f"{self.trigger_dag_id} failed with failed states {state}")
+airflow.exceptions.AirflowException: etl_fact_investment failed with failed states failed
+[2025-07-07T03:20:44.452+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=master_etl, task_id=trigger_fact_investment, execution_date=20250707T031234, start_date=20250707T031443, end_date=20250707T032044
+[2025-07-07T03:20:44.472+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 134 for task trigger_fact_investment (etl_fact_investment failed with failed states failed; 350)
+[2025-07-07T03:20:44.508+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2025-07-07T03:20:44.546+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

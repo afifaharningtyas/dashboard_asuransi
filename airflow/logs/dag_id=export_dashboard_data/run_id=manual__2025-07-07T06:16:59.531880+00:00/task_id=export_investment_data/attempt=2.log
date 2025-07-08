@@ -1,0 +1,31 @@
+[2025-07-07T06:22:03.092+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: export_dashboard_data.export_investment_data manual__2025-07-07T06:16:59.531880+00:00 [queued]>
+[2025-07-07T06:22:03.137+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: export_dashboard_data.export_investment_data manual__2025-07-07T06:16:59.531880+00:00 [queued]>
+[2025-07-07T06:22:03.138+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 2
+[2025-07-07T06:22:03.161+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): export_investment_data> on 2025-07-07 06:16:59.531880+00:00
+[2025-07-07T06:22:03.173+0000] {standard_task_runner.py:57} INFO - Started process 500 to run task
+[2025-07-07T06:22:03.186+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'export_dashboard_data', 'export_investment_data', 'manual__2025-07-07T06:16:59.531880+00:00', '--job-id', '185', '--raw', '--subdir', 'DAGS_FOLDER/export_dashboard_data.py', '--cfg-path', '/tmp/tmpf839cg65']
+[2025-07-07T06:22:03.189+0000] {standard_task_runner.py:85} INFO - Job 185: Subtask export_investment_data
+[2025-07-07T06:22:03.347+0000] {task_command.py:410} INFO - Running <TaskInstance: export_dashboard_data.export_investment_data manual__2025-07-07T06:16:59.531880+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T06:22:03.514+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='export_dashboard_data' AIRFLOW_CTX_TASK_ID='export_investment_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T06:16:59.531880+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T06:16:59.531880+00:00'
+[2025-07-07T06:22:03.549+0000] {base.py:73} INFO - Using connection ID '***_insurance_dw' for task execution.
+[2025-07-07T06:22:03.612+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/export_dashboard_data.py", line 257, in export_investment_dashboard_data
+    df.to_csv(output_path, index=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 3482, in to_csv
+    storage_options=storage_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/formats/format.py", line 1105, in to_csv
+    csv_formatter.save()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/formats/csvs.py", line 243, in save
+    storage_options=self.storage_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+PermissionError: [Errno 13] Permission denied: '/opt/airflow/data/dashboard/investment_metrics_20250707.csv'
+[2025-07-07T06:22:03.640+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=export_dashboard_data, task_id=export_investment_data, execution_date=20250707T061659, start_date=20250707T062203, end_date=20250707T062203
+[2025-07-07T06:22:03.663+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 185 for task export_investment_data ([Errno 13] Permission denied: '/opt/airflow/data/dashboard/investment_metrics_20250707.csv'; 500)
+[2025-07-07T06:22:03.690+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2025-07-07T06:22:03.788+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

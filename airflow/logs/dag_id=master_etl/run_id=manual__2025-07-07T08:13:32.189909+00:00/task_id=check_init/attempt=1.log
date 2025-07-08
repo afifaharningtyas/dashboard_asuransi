@@ -1,0 +1,15 @@
+[2025-07-07T08:13:34.116+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: master_etl.check_init manual__2025-07-07T08:13:32.189909+00:00 [queued]>
+[2025-07-07T08:13:34.126+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: master_etl.check_init manual__2025-07-07T08:13:32.189909+00:00 [queued]>
+[2025-07-07T08:13:34.126+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-07-07T08:13:34.135+0000] {taskinstance.py:1327} INFO - Executing <Task(ShortCircuitOperator): check_init> on 2025-07-07 08:13:32.189909+00:00
+[2025-07-07T08:13:34.139+0000] {standard_task_runner.py:57} INFO - Started process 692 to run task
+[2025-07-07T08:13:34.147+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'master_etl', 'check_init', 'manual__2025-07-07T08:13:32.189909+00:00', '--job-id', '262', '--raw', '--subdir', 'DAGS_FOLDER/master_etl.py', '--cfg-path', '/tmp/tmp4nl9iyw_']
+[2025-07-07T08:13:34.148+0000] {standard_task_runner.py:85} INFO - Job 262: Subtask check_init
+[2025-07-07T08:13:34.214+0000] {task_command.py:410} INFO - Running <TaskInstance: master_etl.check_init manual__2025-07-07T08:13:32.189909+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T08:13:34.302+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='master_etl' AIRFLOW_CTX_TASK_ID='check_init' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T08:13:32.189909+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T08:13:32.189909+00:00'
+[2025-07-07T08:13:34.303+0000] {python.py:183} INFO - Done. Returned value was: True
+[2025-07-07T08:13:34.305+0000] {python.py:253} INFO - Condition result is True
+[2025-07-07T08:13:34.305+0000] {python.py:256} INFO - Proceeding with downstream tasks...
+[2025-07-07T08:13:34.316+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=master_etl, task_id=check_init, execution_date=20250707T081332, start_date=20250707T081334, end_date=20250707T081334
+[2025-07-07T08:13:34.333+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-07-07T08:13:34.376+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

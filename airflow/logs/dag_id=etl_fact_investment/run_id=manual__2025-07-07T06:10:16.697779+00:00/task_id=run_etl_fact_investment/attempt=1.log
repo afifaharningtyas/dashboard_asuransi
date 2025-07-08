@@ -1,0 +1,16 @@
+[2025-07-07T06:10:17.789+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_fact_investment.run_etl_fact_investment manual__2025-07-07T06:10:16.697779+00:00 [queued]>
+[2025-07-07T06:10:17.797+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_fact_investment.run_etl_fact_investment manual__2025-07-07T06:10:16.697779+00:00 [queued]>
+[2025-07-07T06:10:17.797+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-07-07T06:10:17.806+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_etl_fact_investment> on 2025-07-07 06:10:16.697779+00:00
+[2025-07-07T06:10:17.811+0000] {standard_task_runner.py:57} INFO - Started process 402 to run task
+[2025-07-07T06:10:17.814+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'etl_fact_investment', 'run_etl_fact_investment', 'manual__2025-07-07T06:10:16.697779+00:00', '--job-id', '150', '--raw', '--subdir', 'DAGS_FOLDER/etl_fact_investment.py', '--cfg-path', '/tmp/tmpexz5nl2e']
+[2025-07-07T06:10:17.816+0000] {standard_task_runner.py:85} INFO - Job 150: Subtask run_etl_fact_investment
+[2025-07-07T06:10:17.870+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_fact_investment.run_etl_fact_investment manual__2025-07-07T06:10:16.697779+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T06:10:17.944+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_fact_investment' AIRFLOW_CTX_TASK_ID='run_etl_fact_investment' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T06:10:16.697779+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T06:10:16.697779+00:00'
+[2025-07-07T06:10:17.968+0000] {base.py:73} INFO - Using connection ID '***_insurance_bi' for task execution.
+[2025-07-07T06:10:17.994+0000] {base.py:73} INFO - Using connection ID '***_insurance_dw' for task execution.
+[2025-07-07T06:10:18.018+0000] {base.py:73} INFO - Using connection ID '***_insurance_dw' for task execution.
+[2025-07-07T06:10:18.044+0000] {python.py:183} INFO - Done. Returned value was: No valid data to load after removing NULLs
+[2025-07-07T06:10:18.416+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=etl_fact_investment, task_id=run_etl_fact_investment, execution_date=20250707T061016, start_date=20250707T061017, end_date=20250707T061018
+[2025-07-07T06:10:18.462+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-07-07T06:10:18.484+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

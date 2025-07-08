@@ -1,0 +1,30 @@
+[2025-07-07T02:14:40.753+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: master_etl.trigger_dim_policy manual__2025-07-07T02:02:32.064836+00:00 [queued]>
+[2025-07-07T02:14:40.761+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: master_etl.trigger_dim_policy manual__2025-07-07T02:02:32.064836+00:00 [queued]>
+[2025-07-07T02:14:40.761+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 2
+[2025-07-07T02:14:40.769+0000] {taskinstance.py:1327} INFO - Executing <Task(TriggerDagRunOperator): trigger_dim_policy> on 2025-07-07 02:02:32.064836+00:00
+[2025-07-07T02:14:40.771+0000] {standard_task_runner.py:57} INFO - Started process 279 to run task
+[2025-07-07T02:14:40.773+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'master_etl', 'trigger_dim_policy', 'manual__2025-07-07T02:02:32.064836+00:00', '--job-id', '107', '--raw', '--subdir', 'DAGS_FOLDER/master_etl.py', '--cfg-path', '/tmp/tmpwmbi7h64']
+[2025-07-07T02:14:40.774+0000] {standard_task_runner.py:85} INFO - Job 107: Subtask trigger_dim_policy
+[2025-07-07T02:14:40.825+0000] {task_command.py:410} INFO - Running <TaskInstance: master_etl.trigger_dim_policy manual__2025-07-07T02:02:32.064836+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T02:14:40.916+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='master_etl' AIRFLOW_CTX_TASK_ID='trigger_dim_policy' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T02:02:32.064836+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T02:02:32.064836+00:00'
+[2025-07-07T02:14:41.000+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T02:14:41.000+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_policy on 2025-07-07T02:14:40.916728+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T02:15:41.084+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T02:15:41.083+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_policy on 2025-07-07T02:14:40.916728+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T02:16:41.133+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T02:16:41.131+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_policy on 2025-07-07T02:14:40.916728+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T02:17:41.190+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T02:17:41.189+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_policy on 2025-07-07T02:14:40.916728+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T02:18:41.269+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T02:18:41.268+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_policy on 2025-07-07T02:14:40.916728+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T02:19:41.352+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T02:19:41.349+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_policy on 2025-07-07T02:14:40.916728+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T02:20:41.465+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/trigger_dagrun.py", line 208, in execute
+    raise AirflowException(f"{self.trigger_dag_id} failed with failed states {state}")
+airflow.exceptions.AirflowException: etl_dim_policy failed with failed states failed
+[2025-07-07T02:20:41.471+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=master_etl, task_id=trigger_dim_policy, execution_date=20250707T020232, start_date=20250707T021440, end_date=20250707T022041
+[2025-07-07T02:20:41.494+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 107 for task trigger_dim_policy (etl_dim_policy failed with failed states failed; 279)
+[2025-07-07T02:20:41.518+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2025-07-07T02:20:41.561+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

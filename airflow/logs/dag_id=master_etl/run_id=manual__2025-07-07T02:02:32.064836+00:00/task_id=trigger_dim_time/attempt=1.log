@@ -1,0 +1,15 @@
+[2025-07-07T02:03:38.760+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: master_etl.trigger_dim_time manual__2025-07-07T02:02:32.064836+00:00 [queued]>
+[2025-07-07T02:03:38.805+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: master_etl.trigger_dim_time manual__2025-07-07T02:02:32.064836+00:00 [queued]>
+[2025-07-07T02:03:38.808+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-07-07T02:03:38.832+0000] {taskinstance.py:1327} INFO - Executing <Task(TriggerDagRunOperator): trigger_dim_time> on 2025-07-07 02:02:32.064836+00:00
+[2025-07-07T02:03:38.854+0000] {standard_task_runner.py:57} INFO - Started process 223 to run task
+[2025-07-07T02:03:38.859+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'master_etl', 'trigger_dim_time', 'manual__2025-07-07T02:02:32.064836+00:00', '--job-id', '86', '--raw', '--subdir', 'DAGS_FOLDER/master_etl.py', '--cfg-path', '/tmp/tmpf_tyg5xf']
+[2025-07-07T02:03:38.861+0000] {standard_task_runner.py:85} INFO - Job 86: Subtask trigger_dim_time
+[2025-07-07T02:03:39.010+0000] {task_command.py:410} INFO - Running <TaskInstance: master_etl.trigger_dim_time manual__2025-07-07T02:02:32.064836+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T02:03:39.158+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='master_etl' AIRFLOW_CTX_TASK_ID='trigger_dim_time' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T02:02:32.064836+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T02:02:32.064836+00:00'
+[2025-07-07T02:03:39.282+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T02:03:39.282+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_dim_time on 2025-07-07T02:03:39.159817+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T02:04:39.379+0000] {trigger_dagrun.py:210} INFO - etl_dim_time finished with allowed state success
+[2025-07-07T02:04:39.396+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=master_etl, task_id=trigger_dim_time, execution_date=20250707T020232, start_date=20250707T020338, end_date=20250707T020439
+[2025-07-07T02:04:39.439+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-07-07T02:04:39.664+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

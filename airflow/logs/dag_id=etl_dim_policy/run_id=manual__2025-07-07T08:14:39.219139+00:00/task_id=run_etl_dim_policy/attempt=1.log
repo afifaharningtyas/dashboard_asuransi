@@ -1,0 +1,19 @@
+[2025-07-07T08:14:41.575+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_dim_policy.run_etl_dim_policy manual__2025-07-07T08:14:39.219139+00:00 [queued]>
+[2025-07-07T08:14:41.597+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_dim_policy.run_etl_dim_policy manual__2025-07-07T08:14:39.219139+00:00 [queued]>
+[2025-07-07T08:14:41.598+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-07-07T08:14:41.623+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_etl_dim_policy> on 2025-07-07 08:14:39.219139+00:00
+[2025-07-07T08:14:41.640+0000] {standard_task_runner.py:57} INFO - Started process 733 to run task
+[2025-07-07T08:14:41.646+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'etl_dim_policy', 'run_etl_dim_policy', 'manual__2025-07-07T08:14:39.219139+00:00', '--job-id', '276', '--raw', '--subdir', 'DAGS_FOLDER/etl_dim_policy.py', '--cfg-path', '/tmp/tmpqqicgh9n']
+[2025-07-07T08:14:41.651+0000] {standard_task_runner.py:85} INFO - Job 276: Subtask run_etl_dim_policy
+[2025-07-07T08:14:41.774+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_dim_policy.run_etl_dim_policy manual__2025-07-07T08:14:39.219139+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T08:14:42.291+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_dim_policy' AIRFLOW_CTX_TASK_ID='run_etl_dim_policy' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T08:14:39.219139+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T08:14:39.219139+00:00'
+[2025-07-07T08:14:42.302+0000] {logging_mixin.py:150} INFO - Starting ETL process...
+[2025-07-07T08:14:42.441+0000] {base.py:73} INFO - Using connection ID '***_insurance_bi' for task execution.
+[2025-07-07T08:14:45.240+0000] {logging_mixin.py:150} INFO - Extracted 200000 records
+[2025-07-07T08:14:45.377+0000] {logging_mixin.py:150} INFO - Transformed 200000 records
+[2025-07-07T08:14:45.392+0000] {base.py:73} INFO - Using connection ID '***_insurance_dw' for task execution.
+[2025-07-07T08:16:21.138+0000] {logging_mixin.py:150} INFO - ETL completed: Loaded 200000 policy records with batch ID: POLICY_LOAD_20250707_081445
+[2025-07-07T08:16:21.179+0000] {python.py:183} INFO - Done. Returned value was: Loaded 200000 policy records with batch ID: POLICY_LOAD_20250707_081445
+[2025-07-07T08:16:21.261+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=etl_dim_policy, task_id=run_etl_dim_policy, execution_date=20250707T081439, start_date=20250707T081441, end_date=20250707T081621
+[2025-07-07T08:16:21.328+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-07-07T08:16:21.356+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,15 @@
+[2025-07-07T06:15:57.466+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: master_etl.trigger_fact_registration manual__2025-07-07T06:13:47.259414+00:00 [queued]>
+[2025-07-07T06:15:57.489+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: master_etl.trigger_fact_registration manual__2025-07-07T06:13:47.259414+00:00 [queued]>
+[2025-07-07T06:15:57.491+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-07-07T06:15:57.535+0000] {taskinstance.py:1327} INFO - Executing <Task(TriggerDagRunOperator): trigger_fact_registration> on 2025-07-07 06:13:47.259414+00:00
+[2025-07-07T06:15:57.540+0000] {standard_task_runner.py:57} INFO - Started process 449 to run task
+[2025-07-07T06:15:57.546+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'master_etl', 'trigger_fact_registration', 'manual__2025-07-07T06:13:47.259414+00:00', '--job-id', '169', '--raw', '--subdir', 'DAGS_FOLDER/master_etl.py', '--cfg-path', '/tmp/tmp7afkx1ru']
+[2025-07-07T06:15:57.549+0000] {standard_task_runner.py:85} INFO - Job 169: Subtask trigger_fact_registration
+[2025-07-07T06:15:57.632+0000] {task_command.py:410} INFO - Running <TaskInstance: master_etl.trigger_fact_registration manual__2025-07-07T06:13:47.259414+00:00 [running]> on host 1622b3ff66d0
+[2025-07-07T06:15:57.759+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='master_etl' AIRFLOW_CTX_TASK_ID='trigger_fact_registration' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T06:13:47.259414+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T06:13:47.259414+00:00'
+[2025-07-07T06:15:57.895+0000] {secrets_masker.py:278} WARNING - Unable to redact <TaskInstanceState.SUCCESS: 'success'>, please report this via <https://github.com/apache/airflow/issues>. Error was: TypeError: __call__() missing 1 required positional argument: 'value'
+[2025-07-07T06:15:57.895+0000] {trigger_dagrun.py:201} INFO - Waiting for etl_fact_registration on 2025-07-07T06:15:57.760385+00:00 to become allowed state [<TaskInstanceState.SUCCESS: 'success'>] ...
+[2025-07-07T06:16:57.922+0000] {trigger_dagrun.py:210} INFO - etl_fact_registration finished with allowed state success
+[2025-07-07T06:16:57.947+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=master_etl, task_id=trigger_fact_registration, execution_date=20250707T061347, start_date=20250707T061557, end_date=20250707T061657
+[2025-07-07T06:16:58.009+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-07-07T06:16:58.055+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
