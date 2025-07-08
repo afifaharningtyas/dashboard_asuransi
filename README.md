@@ -194,12 +194,6 @@ flowchart TD
 ## 📚 Dokumentasi
 - Lihat folder `docs/` untuk ERD, star schema, dan checklist tugas.
 
-## 🤝 Kontribusi
-- Fork, buat branch, commit, push, dan pull request.
-
-## 📞 Kontak
-- Hubungi tim pengembang untuk pertanyaan atau bantuan.
-
 ---
 
-*README ini telah diterjemahkan dan dirinci untuk kebutuhan pengembangan dan operasional Data Warehouse Asuransi. Untuk dokumentasi teknis detail, silakan cek file di folder `docs/`.*
+*Untuk dokumentasi teknis detail, silakan cek file di folder `docs/`.*

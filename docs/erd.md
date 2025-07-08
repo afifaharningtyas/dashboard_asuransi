@@ -1,91 +1,133 @@
 # Entity Relationship Diagram - Perusahaan Asuransi
 
-## Entities dan Atribut
+## Entities dan Atribut (Sesuai Skema Terbaru)
 
 ### 1. Customer
-- customer_id (PK)
+- customer_key (PK, surrogate)
+- customer_id (business key)
 - nama
 - tanggal_lahir
 - alamat
 - referral_code
 - tanggal_daftar
+- umur (calculated)
+- lama_menjadi_pelanggan (calculated)
+- valid_from
+- valid_to
+- is_current
+- batch_id
+- created_at
+- updated_at
 
 ### 2. Product
-- product_id (PK)
+- product_key (PK, surrogate)
+- product_id (business key)
 - nama_product
 - jenis_product
 - manfaat
 - premi_dasar
+- kategori_premi (calculated)
+- valid_from
+- valid_to
+- is_current
+- batch_id
+- created_at
+- updated_at
 
 ### 3. Policy (Polis)
-- policy_id (PK)
-- customer_id (FK)
-- product_id (FK)
+- policy_key (PK, surrogate)
+- policy_id (business key)
+- customer_id (original)
+- product_id (original)
+- customer_key (FK)
+- product_key (FK)
 - tanggal_mulai
 - tanggal_berakhir
-- status_policy
-- premi_actual
+- status
+- status_polis
+- premium
+- payment_frequency
+- payment_method
+- sum_assured
+- durasi_polis (calculated)
+- valid_from
+- valid_to
+- is_current
+- batch_id
+- created_at
+- updated_at
 
 ### 4. Claim
-- claim_id (PK)
-- policy_id (FK)
-- tanggal_pengajuan
-- tanggal_kejadian
-- status_klaim
-- nominal_klaim
+- claim_key (PK, surrogate)
+- claim_id (business key)
+- policy_key (FK)
+- customer_key (FK)
+- time_key_submitted (FK)
+- time_key_decision (FK)
+- claim_type
+- claim_amount
+- approved_amount
+- status
+- processing_days (calculated)
+- rejection_flag
+- paid_flag
+- batch_id
+- created_at
 
 ### 5. Employee
-- employee_id (PK)
+- employee_key (PK, surrogate)
+- employee_id (business key)
 - nama
-- position
+- tanggal_lahir
+- alamat
+- jabatan
 - department
-- join_date
+- tanggal_masuk
+- umur (calculated)
+- masa_kerja (calculated)
+- valid_from
+- valid_to
+- is_current
+- batch_id
+- created_at
+- updated_at
 
 ### 6. Marketing_Program
-- program_id (PK)
+- program_key (PK, surrogate)
+- program_id (business key)
 - nama_program
 - start_date
 - end_date
 - target
 - description
+- jenis_program
+- budget
+- program_status (calculated)
+- durasi_program (calculated)
+- valid_from
+- valid_to
+- is_current
+- batch_id
+- created_at
+- updated_at
 
-### 7. Sales_Activity
-- activity_id (PK)
-- employee_id (FK)
-- program_id (FK)
-- customer_id (FK)
-- product_id (FK)
-- tanggal_activity
-- status
-- notes
-
-### 8. Investment
-- investment_id (PK)
-- jenis_investasi
-- nominal
-- target_return
-- start_date
-- end_date
-- sumber_dana
-
-### 9. Investment_Return
-- return_id (PK)
-- investment_id (FK)
-- tanggal
-- profit
-- notes
-
-### 10. Customer_Service
-- service_id (PK)
-- customer_id (FK)
-- employee_id (FK)
-- channel
-- kategori_keluhan
-- deskripsi
-- tanggal_input
-- status
-- sla
-- resolution_date
+### 7. Time
+- time_key (PK, surrogate)
+- date_actual
+- day_of_week
+- day_name
+- day_of_month
+- day_of_year
+- week_of_year
+- month_actual
+- month_name
+- quarter_actual
+- year_actual
+- is_weekend
+- is_holiday
+- holiday_name
+- fiscal_year
+- created_at
 
 ## Relationships
 
