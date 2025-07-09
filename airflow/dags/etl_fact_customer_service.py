@@ -61,6 +61,13 @@ def transform_customer_service(df):
     df['interaction_date'] = pd.to_datetime(df['interaction_date']).dt.date
     if 'resolution_date' in df.columns:
         df['resolution_date'] = pd.to_datetime(df['resolution_date']).dt.date
+
+    df['customer_id'] = df['customer_id'].astype(str)
+    df['employee_id'] = df['employee_id'].astype(str)
+    df['policy_id'] = df['policy_id'].astype(str)
+    cust_keys['customer_id'] = cust_keys['customer_id'].astype(str)
+    emp_keys['employee_id'] = emp_keys['employee_id'].astype(str)
+    policy_keys['policy_id'] = policy_keys['policy_id'].astype(str)
     
     # Merge with customer, employee, policy
     df = pd.merge(df, cust_keys, on='customer_id', how='left')

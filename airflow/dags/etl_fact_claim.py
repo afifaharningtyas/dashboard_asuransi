@@ -58,6 +58,10 @@ def transform_claim_facts(df):
     if 'decision_date' in df.columns:
         df['decision_date'] = pd.to_datetime(df['decision_date']).dt.date
     
+    df['policy_id'] = df['policy_id'].astype(str)
+    print('df ---',df.head(2))
+    policy_keys['policy_id'] = policy_keys['policy_id'].astype(str)
+    print('policy_keys ---',policy_keys.head(2))
     # Join with dimension tables
     df = pd.merge(df, policy_keys, on='policy_id', how='left')
     df = pd.merge(df, time_keys, left_on='claim_date', right_on='date_actual', how='left')
@@ -92,7 +96,7 @@ def transform_claim_facts(df):
         'approved_amount', 'status', 'processing_days', 
         'rejection_flag', 'paid_flag', 'batch_id'
     ]]
-    
+    print('result_df ---', result_df.head(2))
     return result_df
 
 def load_fact_claim(df):

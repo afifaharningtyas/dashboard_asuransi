@@ -6,6 +6,10 @@ CREATE TABLE IF NOT EXISTS fact_investment (
     customer_key INT NOT NULL,
     time_key_investment INT NOT NULL, -- Investment date
     investment_type VARCHAR(50),
+    risk_level VARCHAR(30),
+    fund_manager VARCHAR(100),
+    initial_nav NUMERIC(12, 2),
+    units_purchased NUMERIC(15, 4),
     amount NUMERIC(15, 2),
     return_percentage NUMERIC(5, 2),
     days_since_investment INT,
@@ -23,3 +27,4 @@ CREATE INDEX IF NOT EXISTS idx_fact_invest_policy ON fact_investment(policy_key)
 CREATE INDEX IF NOT EXISTS idx_fact_invest_customer ON fact_investment(customer_key);
 CREATE INDEX IF NOT EXISTS idx_fact_invest_time ON fact_investment(time_key_investment);
 CREATE INDEX IF NOT EXISTS idx_fact_invest_type ON fact_investment(investment_type);
+

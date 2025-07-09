@@ -10,10 +10,10 @@ CREATE TABLE IF NOT EXISTS dim_policy (
     tanggal_berakhir DATE,
     status VARCHAR(20),
     status_polis VARCHAR(20), -- Added: Policy status (Active, Expired, Future)
-    premium NUMERIC(12, 2),
-    payment_frequency VARCHAR(20),
-    payment_method VARCHAR(30),
-    sum_assured NUMERIC(15, 2),
+    -- premium NUMERIC(12, 2),
+    -- payment_frequency VARCHAR(20),
+    -- payment_method VARCHAR(30),
+    -- sum_assured NUMERIC(15, 2),
     durasi_polis INT, -- Calculated field in days (not years based on your ETL)
     valid_from DATE NOT NULL,
     valid_to DATE,

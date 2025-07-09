@@ -40,6 +40,14 @@ def transform_sales_activity(df):
     time_keys['date_actual'] = pd.to_datetime(time_keys['date_actual']).dt.date
     df['activity_date'] = pd.to_datetime(df['activity_date']).dt.date
     
+    df['customer_id'] = df['customer_id'].astype(str)
+    df['employee_id'] = df['employee_id'].astype(str)
+    df['product_id'] = df['product_id'].astype(str)
+    df['program_id'] = df['program_id'].astype(str)
+    emp_keys['employee_id'] = emp_keys['employee_id'].astype(str)
+    cust_keys['customer_id'] = cust_keys['customer_id'].astype(str)
+    prod_keys['product_id'] = prod_keys['product_id'].astype(str)
+    prog_keys['program_id'] = prog_keys['program_id'].astype(str)
     # Merge with dimension tables
     df = pd.merge(df, emp_keys, on='employee_id', how='left')
     df = pd.merge(df, cust_keys, on='customer_id', how='left')

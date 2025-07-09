@@ -78,6 +78,12 @@ def transform_registration_facts(df):
     # Convert tanggal_mulai to datetime.date for merging
     df['tanggal_mulai'] = pd.to_datetime(df['tanggal_mulai']).dt.date
     
+    df['customer_id'] = df['customer_id'].astype(str)
+    df['product_id'] = df['product_id'].astype(str)
+    df['policy_id'] = df['policy_id'].astype(str)
+    customer_keys['customer_id'] = customer_keys['customer_id'].astype(str)
+    product_keys['product_id'] = product_keys['product_id'].astype(str)
+    policy_keys['policy_id'] = policy_keys['policy_id'].astype(str)
     # Merge with dimension keys
     df = pd.merge(df, customer_keys, on='customer_id', how='left')
     df = pd.merge(df, product_keys, on='product_id', how='left')
