@@ -8,3 +8,8 @@ __pycache__/
 airflow/logs/
 data/raw/
 *.csv
+airflow/dags/__pycache__/
+airflow/dags/sql/__pycache__/
+airflow/dags/sql/*.pyc
+airflow/dags/sql/*.pyo
+airflow/dags/config/__pycache__/
