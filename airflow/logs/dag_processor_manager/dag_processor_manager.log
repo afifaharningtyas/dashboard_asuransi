@@ -33883,3 +33883,125 @@ File Path                                       PID    Runtime      # DAGs    # 
 /opt/airflow/dags/etl_dim_marketing_program.py                           1           0  0.34s           2025-07-09T03:34:27
 /opt/airflow/dags/etl_fact_investment.py                                 1           0  0.54s           2025-07-09T03:34:27
 ================================================================================
+[2025-07-09T03:35:08.871+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/config/db_config.py                                    0           0  0.03s           2025-07-09T03:34:58
+/opt/airflow/dags/etl_dim_product.py                                     1           0  0.31s           2025-07-09T03:34:58
+/opt/airflow/dags/test_dag.py                                            1           0  0.12s           2025-07-09T03:34:55
+/opt/airflow/dags/etl_dim_customer.py                                    1           0  0.25s           2025-07-09T03:34:58
+/opt/airflow/dags/export_dashboard_data.py                               1           0  0.34s           2025-07-09T03:34:57
+/opt/airflow/dags/etl_fact_customer_service.py                           1           0  0.47s           2025-07-09T03:34:54
+/opt/airflow/dags/init_dw.py                                             1           0  0.35s           2025-07-09T03:34:57
+/opt/airflow/dags/etl_fact_sales_activity.py                             1           0  0.27s           2025-07-09T03:34:54
+/opt/airflow/dags/etl_dim_employee.py                                    1           0  0.30s           2025-07-09T03:34:58
+/opt/airflow/dags/etl_fact_registration.py                               1           0  0.46s           2025-07-09T03:34:54
+/opt/airflow/dags/etl_dim_policy.py                                      1           0  0.31s           2025-07-09T03:34:55
+/opt/airflow/dags/etl_fact_claim.py                                      1           0  0.33s           2025-07-09T03:34:55
+/opt/airflow/dags/manual_etl.py                                          1           0  0.08s           2025-07-09T03:34:55
+/opt/airflow/dags/etl_dim_time.py                                        1           0  0.14s           2025-07-09T03:34:58
+/opt/airflow/dags/master_etl.py                                          1           0  0.20s           2025-07-09T03:34:55
+/opt/airflow/dags/etl_dim_marketing_program.py                           1           0  0.34s           2025-07-09T03:34:58
+/opt/airflow/dags/etl_fact_investment.py                                 1           0  0.25s           2025-07-09T03:34:58
+================================================================================
+[2025-07-09T03:35:16.974+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-07-09T03:35:17.007+0000] {manager.py:761} INFO - There are 17 files in /opt/airflow/dags
+[2025-07-09T03:35:39.722+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/config/db_config.py                                    0           0  0.03s           2025-07-09T03:35:28
+/opt/airflow/dags/etl_dim_product.py                                     1           0  0.32s           2025-07-09T03:35:29
+/opt/airflow/dags/test_dag.py                                            1           0  0.07s           2025-07-09T03:35:26
+/opt/airflow/dags/etl_dim_customer.py                                    1           0  0.28s           2025-07-09T03:35:29
+/opt/airflow/dags/export_dashboard_data.py                               1           0  0.35s           2025-07-09T03:35:28
+/opt/airflow/dags/etl_fact_customer_service.py                           1           0  0.43s           2025-07-09T03:35:25
+/opt/airflow/dags/init_dw.py                                             1           0  0.35s           2025-07-09T03:35:28
+/opt/airflow/dags/etl_fact_sales_activity.py                             1           0  0.33s           2025-07-09T03:35:25
+/opt/airflow/dags/etl_dim_employee.py                                    1           0  0.32s           2025-07-09T03:35:29
+/opt/airflow/dags/etl_fact_registration.py                               1           0  0.44s           2025-07-09T03:35:25
+/opt/airflow/dags/etl_dim_policy.py                                      1           0  0.31s           2025-07-09T03:35:26
+/opt/airflow/dags/etl_fact_claim.py                                      1           0  0.43s           2025-07-09T03:35:26
+/opt/airflow/dags/manual_etl.py                                          1           0  0.07s           2025-07-09T03:35:26
+/opt/airflow/dags/etl_dim_time.py                                        1           0  0.19s           2025-07-09T03:35:29
+/opt/airflow/dags/master_etl.py                                          1           0  0.20s           2025-07-09T03:35:26
+/opt/airflow/dags/etl_dim_marketing_program.py                           1           0  0.33s           2025-07-09T03:35:29
+/opt/airflow/dags/etl_fact_investment.py                                 1           0  0.25s           2025-07-09T03:35:28
+================================================================================
+[2025-07-09T03:36:09.808+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/config/db_config.py                                    0           0  0.02s           2025-07-09T03:36:00
+/opt/airflow/dags/etl_dim_product.py                                     1           0  0.34s           2025-07-09T03:36:00
+/opt/airflow/dags/test_dag.py                                            1           0  0.15s           2025-07-09T03:35:57
+/opt/airflow/dags/etl_dim_customer.py                                    1           0  0.31s           2025-07-09T03:36:00
+/opt/airflow/dags/export_dashboard_data.py                               1           0  0.45s           2025-07-09T03:35:59
+/opt/airflow/dags/etl_fact_customer_service.py                           1           0  0.53s           2025-07-09T03:35:56
+/opt/airflow/dags/init_dw.py                                             1           0  0.33s           2025-07-09T03:35:59
+/opt/airflow/dags/etl_fact_sales_activity.py                             1           0  0.27s           2025-07-09T03:35:56
+/opt/airflow/dags/etl_dim_employee.py                                    1           0  0.32s           2025-07-09T03:36:00
+/opt/airflow/dags/etl_fact_registration.py                               1           0  0.51s           2025-07-09T03:35:56
+/opt/airflow/dags/etl_dim_policy.py                                      1           0  0.36s           2025-07-09T03:35:57
+/opt/airflow/dags/etl_fact_claim.py                                      1           0  0.31s           2025-07-09T03:35:57
+/opt/airflow/dags/manual_etl.py                                          1           0  0.13s           2025-07-09T03:35:57
+/opt/airflow/dags/etl_dim_time.py                                        1           0  0.12s           2025-07-09T03:35:59
+/opt/airflow/dags/master_etl.py                                          1           0  0.21s           2025-07-09T03:35:57
+/opt/airflow/dags/etl_dim_marketing_program.py                           1           0  0.34s           2025-07-09T03:36:00
+/opt/airflow/dags/etl_fact_investment.py                                 1           0  0.36s           2025-07-09T03:36:00
+================================================================================
+[2025-07-09T03:36:40.560+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/config/db_config.py                                    0           0  0.02s           2025-07-09T03:36:31
+/opt/airflow/dags/etl_dim_product.py                                     1           0  0.23s           2025-07-09T03:36:31
+/opt/airflow/dags/test_dag.py                                            1           0  0.12s           2025-07-09T03:36:28
+/opt/airflow/dags/etl_dim_customer.py                                    1           0  0.23s           2025-07-09T03:36:31
+/opt/airflow/dags/export_dashboard_data.py                               1           0  0.35s           2025-07-09T03:36:30
+/opt/airflow/dags/etl_fact_customer_service.py                           1           0  0.43s           2025-07-09T03:36:27
+/opt/airflow/dags/init_dw.py                                             1           0  0.35s           2025-07-09T03:36:30
+/opt/airflow/dags/etl_fact_sales_activity.py                             1           0  0.27s           2025-07-09T03:36:27
+/opt/airflow/dags/etl_dim_employee.py                                    1           0  0.27s           2025-07-09T03:36:31
+/opt/airflow/dags/etl_fact_registration.py                               1           0  0.42s           2025-07-09T03:36:27
+/opt/airflow/dags/etl_dim_policy.py                                      1           0  0.35s           2025-07-09T03:36:27
+/opt/airflow/dags/etl_fact_claim.py                                      1           0  0.35s           2025-07-09T03:36:27
+/opt/airflow/dags/manual_etl.py                                          1           0  0.14s           2025-07-09T03:36:28
+/opt/airflow/dags/etl_dim_time.py                                        1           0  0.13s           2025-07-09T03:36:30
+/opt/airflow/dags/master_etl.py                                          1           0  0.20s           2025-07-09T03:36:28
+/opt/airflow/dags/etl_dim_marketing_program.py                           1           0  0.26s           2025-07-09T03:36:31
+/opt/airflow/dags/etl_fact_investment.py                                 1           0  0.28s           2025-07-09T03:36:30
+================================================================================
+[2025-07-09T03:36:49.871+0000] {manager.py:1134} WARNING - Skipping processing of missing file: /opt/airflow/dags/manual_etl.py
+[2025-07-09T03:37:11.124+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/config/db_config.py                                    0           0  0.02s           2025-07-09T03:37:01
+/opt/airflow/dags/etl_dim_product.py                                     1           0  0.32s           2025-07-09T03:37:01
+/opt/airflow/dags/test_dag.py                                            1           0  0.08s           2025-07-09T03:36:58
+/opt/airflow/dags/etl_dim_customer.py                                    1           0  0.24s           2025-07-09T03:37:02
+/opt/airflow/dags/export_dashboard_data.py                               1           0  0.33s           2025-07-09T03:37:01
+/opt/airflow/dags/etl_fact_customer_service.py                           1           0  0.42s           2025-07-09T03:36:58
+/opt/airflow/dags/init_dw.py                                             1           0  0.31s           2025-07-09T03:37:01
+/opt/airflow/dags/etl_fact_sales_activity.py                             1           0  0.31s           2025-07-09T03:36:58
+/opt/airflow/dags/etl_dim_employee.py                                    1           0  0.30s           2025-07-09T03:37:01
+/opt/airflow/dags/etl_fact_registration.py                               1           0  0.37s           2025-07-09T03:36:58
+/opt/airflow/dags/etl_dim_policy.py                                      1           0  0.29s           2025-07-09T03:36:58
+/opt/airflow/dags/etl_fact_claim.py                                      1           0  0.27s           2025-07-09T03:36:58
+/opt/airflow/dags/etl_dim_time.py                                        1           0  0.15s           2025-07-09T03:37:01
+/opt/airflow/dags/master_etl.py                                          1           0  0.12s           2025-07-09T03:36:58
+/opt/airflow/dags/etl_dim_marketing_program.py                           1           0  0.30s           2025-07-09T03:37:01
+/opt/airflow/dags/etl_fact_investment.py                                 1           0  0.27s           2025-07-09T03:37:01
+================================================================================
