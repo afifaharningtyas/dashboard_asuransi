@@ -1,6 +1,9 @@
-*.csv
 *.csv.gz
 *.json
 *.log
 *.env
 logs/
+__pycache__/
+*.pyc
+airflow/logs/
+data/raw/
